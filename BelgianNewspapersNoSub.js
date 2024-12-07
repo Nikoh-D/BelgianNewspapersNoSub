@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         BelgianNewspapersNoSub
 // @namespace    https://github.com/Nikoh-D/BelgianNewspapersNoSub
-// @version      1.7.1
+// @version      1.7.2
 // @description:fr  Permet de lire n'importe quel article réservé aux abonné.e.s sur lalibre, l'avenir, dhnet et levif
 // @description:en  Be able to read any sub-only article on lalibre, l'avenir, dhnet and levif
 // @author       Nikoh-D
@@ -10,6 +10,8 @@
 // @match        https://www.dhnet.be/*
 // @match        https://*.levif.be/*
 // @icon         https://external-content.duckduckgo.com/iu/?u=https://cdn-icons-png.flaticon.com/512/3099/3099820.png
+// @updateURL    https://raw.githubusercontent.com/Nikoh-D/BelgianNewspapersNoSub/refs/heads/main/BelgianNewspapersNoSub.js
+// @downloadURL  https://raw.githubusercontent.com/Nikoh-D/BelgianNewspapersNoSub/refs/heads/main/BelgianNewspapersNoSub.js
 // ==/UserScript==
 
 function forceScrollBarToShow(){
