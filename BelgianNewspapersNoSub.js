@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         BelgianNewspapersNoSub
 // @namespace    https://github.com/Nikoh-D/BelgianNewspapersNoSub
-// @version      1.7.2
+// @version      1.8
 // @description:fr  Permet de lire n'importe quel article réservé aux abonné.e.s sur lalibre, l'avenir, dhnet et levif
 // @description:en  Be able to read any sub-only article on lalibre, l'avenir, dhnet and levif
 // @author       Nikoh-D
@@ -14,6 +14,8 @@
 // @downloadURL  https://raw.githubusercontent.com/Nikoh-D/BelgianNewspapersNoSub/refs/heads/main/BelgianNewspapersNoSub.js
 // ==/UserScript==
 
+let browser = detectBrowser();
+let IPMcontent;
 function forceScrollBarToShow(){
     // credits to user1274820: https://stackoverflow.com/a/43725145
     var r = "html,body{overflow:auto !important;}";
@@ -24,6 +26,13 @@ function forceScrollBarToShow(){
 }
 
 function removePaywallGroupeIPM(){
+    if (browser === 'Chrome') {
+        const paywallElement = document.getElementById('piano-paywall-PAYING');
+        while (paywallElement.firstChild) {
+            paywallElement.removeChild(paywallElement.firstChild);
+        }
+        paywallElement.appendChild(IPMcontent);
+    }
     removeClassFromElementById("story-preview-PAYING", "is-preview");
     removeClassFromElementById("story-content-PAYING", "is-hidden");
 }
@@ -51,6 +60,24 @@ function removeClassFromElementById(ElementId, ClassToRemove){
 function checkHostname(urls) {
     const currentHostname = window.location.hostname;
     return urls.includes(currentHostname);
+}
+
+// Fonction pour détecter le navigateur
+function detectBrowser() {
+  let userAgent = navigator.userAgent.toLowerCase();
+
+  if (userAgent.indexOf('chrome') !== -1) {
+    return 'Chrome';
+  } else if (userAgent.indexOf('firefox') !== -1) {
+    return 'Firefox';
+  } else {
+    return 'Other';
+  }
+}
+
+if ((browser === 'Chrome') && checkHostname(['www.lalibre.be', 'www.lavenir.net', 'www.dhnet.be'])) {
+    const sourceCode = document.documentElement;
+    IPMcontent = sourceCode.querySelector('#story-content-PAYING');
 }
 
 function main(){
