@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         BelgianNewspapersNoSub
 // @namespace    https://github.com/Nikoh-D/BelgianNewspapersNoSub
-// @version      1.8
+// @version      1.8.1
 // @description:fr  Permet de lire n'importe quel article réservé aux abonné.e.s sur lalibre, l'avenir, dhnet et levif
 // @description:en  Be able to read any sub-only article on lalibre, l'avenir, dhnet and levif
 // @author       Nikoh-D
@@ -9,6 +9,8 @@
 // @match        https://www.lavenir.net/*
 // @match        https://www.dhnet.be/*
 // @match        https://*.levif.be/*
+// @match        https://*.knack.be/*
+// @grant        none
 // @icon         https://external-content.duckduckgo.com/iu/?u=https://cdn-icons-png.flaticon.com/512/3099/3099820.png
 // @updateURL    https://raw.githubusercontent.com/Nikoh-D/BelgianNewspapersNoSub/refs/heads/main/BelgianNewspapersNoSub.js
 // @downloadURL  https://raw.githubusercontent.com/Nikoh-D/BelgianNewspapersNoSub/refs/heads/main/BelgianNewspapersNoSub.js
@@ -45,7 +47,7 @@ function removeElement(selectors){
 function removePaywallRoulartaMediaGroup(){
     if (location.hostname === 'trends.levif.be') {
         removeElement('#datawall-modal');
-    } else if (location.hostname === 'www.levif.be'){
+    } else if (location.hostname === 'www.levif.be' || location.hostname === 'www.knack.be') {
         removeElement('#paywall-modal');
     }
 }
@@ -83,7 +85,7 @@ if ((browser === 'Chrome') && checkHostname(['www.lalibre.be', 'www.lavenir.net'
 function main(){
     if (checkHostname(['www.lalibre.be', 'www.lavenir.net', 'www.dhnet.be'])) {
         removePaywallGroupeIPM();
-    } else if (checkHostname(['www.levif.be', 'trends.levif.be'])){
+    } else if (checkHostname(['www.levif.be', 'trends.levif.be', 'www.knack.be'])){
         forceScrollBarToShow();
         removePaywallRoulartaMediaGroup();
     }
