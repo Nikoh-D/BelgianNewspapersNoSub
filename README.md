@@ -2,7 +2,7 @@
 Permet de lire n'importe quel article réservé aux abonné.e.s sur lalibre, l'avenir, dhnet et levif.
 
 ## :rocket: Installation :rocket:
-Crtl-A puis Crtl-V le contenu de [BelgianNewspapersNoSub.js](https://raw.githubusercontent.com/Nikoh-D/BelgianNewspapersNoSub/refs/heads/main/BelgianNewspapersNoSub.js) dans un nouveau script sur Tampermonkey.
+Copier-coller le contenu de [BelgianNewspapersNoSub.js](https://raw.githubusercontent.com/Nikoh-D/BelgianNewspapersNoSub/refs/heads/main/BelgianNewspapersNoSub.js) dans un nouveau script sur Tampermonkey.
 
 Le script fonctionne sur Firefox & Chromium (Brave, Chrome,...).
 
